@@ -1,5 +1,9 @@
-// src/index.js
+import fs from 'node:fs/promises';
 
-const message = 'Hello Node';
+// без кодування
+const buffer = await fs.readFile('file.txt');
+console.log(buffer); // <Buffer ... >
 
-console.log(message);
+// з кодуванням
+const data = await fs.readFile('file.txt', 'utf8');
+console.log('Вміст файлу:', data); // "Hello"
